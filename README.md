@@ -1,16 +1,15 @@
-# turbovets_messaging_app
+# TurboVets Messaging App
 
-A new Flutter project.
+How to start the Angular HTTP Server
+1. Download the files in Github as a folder
+2. Open terminal & cd to the project
+3. Run 'npm install' to ensure dependencies are installed
+4. Run 'npm start'
+5. At this point, Service is running
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+How to Run Flutter App
+1. Ensure you have latest Xcode and iOS Simulator installed on your system
+2. Open VSCode and open the folder for the Flutter Project
+3. Assuming flutter is already installed, Check if cocoapods is installed by doing 'pod --version'
+4. If cocoapods installed then move to next part but if not, do 'cd ios' then 'pod install' then 'cd ..' to get back to root project in terminal
+5. Start Debugging to run the app or do 'flutter run' in terminal
