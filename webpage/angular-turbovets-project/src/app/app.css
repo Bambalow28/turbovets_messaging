@@ -1,0 +1,117 @@
+:host {
+  display: block;
+  height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.app-container {
+  display: flex;
+  height: 100%;
+  background-color: #f5f7fa;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.logo-icon {
+  font-size: 1.75rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.nav-links li {
+  margin-bottom: 0.5rem;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  color: #94a3b8;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.nav-links a.active {
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.nav-icon {
+  font-size: 1.25rem;
+}
+
+.nav-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+}
+
+.user-avatar {
+  font-size: 1.5rem;
+}
+
+.user-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+/* Main Content Styles */
+.main-content {
+  flex: 1;
+  overflow: auto;
+  padding: 2rem;
+}

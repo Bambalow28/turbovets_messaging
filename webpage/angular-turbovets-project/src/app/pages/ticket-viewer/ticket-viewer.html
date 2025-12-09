@@ -1,0 +1,64 @@
+<div class="ticket-viewer">
+  <header class="page-header">
+    <h1>Support Tickets</h1>
+    <p class="subtitle">Manage and track customer support requests</p>
+  </header>
+
+  <div class="filters">
+    <button 
+      class="filter-btn" 
+      [class.active]="activeFilter() === 'All'"
+      (click)="setFilter('All')">
+      All
+    </button>
+    <button 
+      class="filter-btn" 
+      [class.active]="activeFilter() === 'Open'"
+      (click)="setFilter('Open')">
+      Open
+    </button>
+    <button 
+      class="filter-btn" 
+      [class.active]="activeFilter() === 'In Progress'"
+      (click)="setFilter('In Progress')">
+      In Progress
+    </button>
+    <button 
+      class="filter-btn" 
+      [class.active]="activeFilter() === 'Closed'"
+      (click)="setFilter('Closed')">
+      Closed
+    </button>
+  </div>
+
+  <div class="table-container">
+    <table class="tickets-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Subject</th>
+          <th>Status</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (ticket of filteredTickets(); track ticket.id) {
+          <tr>
+            <td class="ticket-id">{{ ticket.id }}</td>
+            <td class="ticket-subject">{{ ticket.subject }}</td>
+            <td>
+              <span class="status-badge" [class]="getStatusClass(ticket.status)">
+                {{ ticket.status }}
+              </span>
+            </td>
+            <td class="ticket-date">{{ ticket.createdAt.toLocaleDateString() }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-footer">
+    <span class="ticket-count">Showing {{ filteredTickets().length }} of {{ tickets().length }} tickets</span>
+  </div>
+</div>

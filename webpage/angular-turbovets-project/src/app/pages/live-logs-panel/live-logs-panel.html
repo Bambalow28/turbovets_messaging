@@ -1,0 +1,65 @@
+<div class="live-logs-container">
+  <header class="logs-header">
+    <h1>Live Logs Panel</h1>
+    <div class="header-controls">
+      <div class="status-indicator" [class.running]="isRunning">
+        <span class="status-dot"></span>
+        <span>{{ isRunning ? 'Live' : 'Paused' }}</span>
+      </div>
+      <span class="log-count">{{ logs.length }} entries</span>
+    </div>
+  </header>
+
+  <div class="controls-bar">
+    <button 
+      class="control-btn" 
+      [class.pause]="isRunning"
+      (click)="toggleLogging()">
+      <span class="btn-icon">{{ isRunning ? '⏸' : '▶' }}</span>
+      {{ isRunning ? 'Pause' : 'Resume' }}
+    </button>
+    
+    <button 
+      class="control-btn clear" 
+      (click)="clearLogs()"
+      [disabled]="logs.length === 0">
+      <span class="btn-icon">🗑</span>
+      Clear Logs
+    </button>
+    
+    <label class="auto-scroll-toggle">
+      <input 
+        type="checkbox" 
+        [checked]="autoScroll"
+        (change)="toggleAutoScroll()">
+      <span>Auto-scroll</span>
+    </label>
+  </div>
+
+  <div class="logs-panel" #logContainer>
+    @if (logs.length === 0) {
+      <div class="empty-state">
+        <span class="empty-icon">📋</span>
+        <p>No logs yet. Logs will appear here in real-time.</p>
+      </div>
+    } @else {
+      @for (log of logs; track log.id) {
+        <div class="log-entry" [class]="getLevelClass(log.level)">
+          <span class="log-timestamp">{{ formatTimestamp(log.timestamp) }}</span>
+          <span class="log-level">{{ log.level }}</span>
+          <span class="log-source">[{{ log.source }}]</span>
+          <span class="log-message">{{ log.message }}</span>
+        </div>
+      }
+    }
+  </div>
+
+  <footer class="logs-footer">
+    <div class="legend">
+      <span class="legend-item info"><span class="legend-dot"></span> Info</span>
+      <span class="legend-item debug"><span class="legend-dot"></span> Debug</span>
+      <span class="legend-item warn"><span class="legend-dot"></span> Warning</span>
+      <span class="legend-item error"><span class="legend-dot"></span> Error</span>
+    </div>
+  </footer>
+</div>

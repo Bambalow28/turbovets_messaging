@@ -1,0 +1,45 @@
+<div class="knowledgebase-editor">
+  <header class="page-header">
+    <div class="header-content">
+      <h1>Knowledgebase Editor</h1>
+      <p class="subtitle">Create and edit documentation with markdown</p>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-secondary" (click)="togglePreview()">
+        {{ isPreviewMode() ? '✏️ Edit' : '👁️ Preview' }}
+      </button>
+      <button class="btn btn-primary" (click)="save()">
+        💾 Save
+      </button>
+    </div>
+  </header>
+
+  @if (savedMessage()) {
+    <div class="save-notification">
+      ✅ {{ savedMessage() }}
+    </div>
+  }
+
+  <div class="editor-container">
+    <!-- Editor Panel -->
+    <div class="panel editor-panel" [class.hidden]="isPreviewMode()">
+      <div class="panel-header">
+        <span class="panel-title">📝 Editor</span>
+      </div>
+      <textarea
+        class="editor-textarea"
+        [value]="content()"
+        (input)="updateContent($event)"
+        placeholder="Write your markdown here..."
+      ></textarea>
+    </div>
+
+    <!-- Preview Panel -->
+    <div class="panel preview-panel" [class.full-width]="isPreviewMode()">
+      <div class="panel-header">
+        <span class="panel-title">👁️ Preview</span>
+      </div>
+      <div class="preview-content" [innerHTML]="parseMarkdown(content())"></div>
+    </div>
+  </div>
+</div>
