@@ -35,13 +35,6 @@ class MessagesController {
       imageUrl: 'https://i.pravatar.cc/150?img=5',
     ),
     Messages(
-      name: 'James Wilson',
-      message: 'Did you see the game last night? What an incredible finish!',
-      time: '11:00 AM',
-      unreadCount: 5,
-      imageUrl: 'https://i.pravatar.cc/150?img=8',
-    ),
-    Messages(
       name: 'Lisa Anderson',
       message:
           'I just sent you the files. Please review them when you get a chance.',
